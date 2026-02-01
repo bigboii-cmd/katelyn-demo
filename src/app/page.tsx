@@ -2,42 +2,44 @@ import { AccordionItem } from "./components/accordion";
 import { ScrollReveal, HeroReveal } from "./components/scroll-reveal";
 import { MobileNav } from "./components/mobile-nav";
 
+const BOOKSY_URL = "https://kaysnailwagon.booksy.com";
+
 const SERVICES = [
   {
     title: "Full Sets",
-    price: "$65+",
+    price: "$75+",
     icon: "diamond",
     features: [
-      "Acrylic Full Set",
+      "Medium Full Set ($75+)",
+      "Long Full Set ($90+)",
       "Gel-X Extensions",
-      "Custom Shaping (Coffin, Stiletto, etc.)",
-      "Solid Gel Color Included",
+      "Custom Shaping & Gel Color",
     ],
     cta: "Book Full Set",
     popular: false,
   },
   {
-    title: "Maintenance",
-    price: "$45+",
+    title: "Fills & Maintenance",
+    price: "$60+",
     icon: "auto_fix_high",
     features: [
-      "Acrylic / Gel Fills (2-3 weeks)",
-      "Nail Repairs",
-      "Re-shaping",
+      "Short / Medium Short Fill ($60+)",
+      "Nail Repairs & Re-shaping",
       "Safe Gel Removal",
+      "Color Change Available",
     ],
     cta: "Book Maintenance",
     popular: true,
   },
   {
-    title: "Natural Nails",
-    price: "$40+",
+    title: "Mani & Pedi",
+    price: "$90",
     icon: "spa",
     features: [
+      "Dry Mani Pedi ($90)",
       "Gel Manicure",
       "Luxury Pedicure",
-      "Structured Gel Overlay (BIAB)",
-      "Cuticle Care",
+      "Cuticle Care Included",
     ],
     cta: "Book Mani/Pedi",
     popular: false,
@@ -46,36 +48,36 @@ const SERVICES = [
 
 const GALLERY_IMAGES = [
   {
-    src: "https://lh3.googleusercontent.com/aida-public/AB6AXuBK_AHs4HMHvSk_S_4-KLBhRUkFrO5Z1DoJ8hprE29bLOFl_LkNW4KOl-c6_sTZKA1T_zXW9iKLWnwCTHE3gniirQzEyFFdgALJjEua11i2hpbHIhMtV6AEo7WFUTRXCuy-ve_1ig2rDGjTTQP3OFxWHQkX7IcboY_YqAKoGg4hyzOTUZpO4B5w6JMXuhDZF44uFfCcZNJgVSkoehICQTsHDJr8zI0bUE8AUMYhzpM4oO87eGfCW8Cd9uJaR1umtWKAdMT40kHWcPM",
-    alt: "Long almond shape acrylic nails with pink french tip design",
-    label: "Pink Frenchies",
+    src: "/images/gallery/portfolio-3.jpeg",
+    alt: "Pink leopard print nails with bow and flower accents",
+    label: "Pink Leopard",
     sub: "Acrylic Set",
     className: "row-span-2 col-span-2 md:col-span-1 md:row-span-2",
   },
   {
-    src: "https://lh3.googleusercontent.com/aida-public/AB6AXuDTnz1xvtzztr7crAMAkQ1Z92IHpAZX_Z-SVYZ8153wVowOnT1GitjdepCQjKh9l0JRn0R30uM-bFGuCoe8CuPMvxBS7DzDmKIpaaHPYsNOjNGkfUbYSeR2P04qcU_KgnEru_VVOkpki1O0maKDoWc6S8k1US2x_qmKuosrPMXQEATDSDFO1SJOjpZqjMoaFvz6JB0YLSah4sZAKBAjG1IllD1UOs6e8-YSLjeClbm4-z3MHmYGK_yFdYC_WptGH-afbMvRWVtd1aA",
-    alt: "Abstract swirl nail art design in pastel colors",
+    src: "/images/gallery/portfolio-1.jpeg",
+    alt: "Tropical floral nail art with pink and blue accents",
     label: "",
     sub: "",
     className: "",
   },
   {
-    src: "https://lh3.googleusercontent.com/aida-public/AB6AXuDPAVYnDcDkVsFbvGGcsM4Qyezq_cycpoPCKV-Ua9PwwR8bqskSlUnagjEGGS4dYs6Rpu508wQbA9Rs7ECb8nwu_eb6YpmlKTwPlu6LlSd2DMUz6cgRSN70XSC6N9X0H8wzUKJsRzXmV6S-p3Gpif7cZZ_fz2enURQ6Rgu2_ANIxRUjBQSTxulEfGsC38R0dpfv1nvDtXXFGx2aKhkfBzwIQ_E47EzAMnpsxpIgst12LA55k5c9DnJoWRSvaWVmrn4r1RDiYkNNOpk",
-    alt: "Close up of glitter gel manicure",
+    src: "/images/gallery/portfolio-2.jpeg",
+    alt: "Elegant pink nails with jeweled french tips",
     label: "",
     sub: "",
     className: "",
   },
   {
-    src: "https://lh3.googleusercontent.com/aida-public/AB6AXuB5Ay7dELGnGzC-LuhCRM75mmItley0z6oqUTCGL4O__DxhaJYXCpqQQ7VonEeuwdxa72nfJldv9EDc4xqHa56G542ef_sf_EPypLI_0ht8l0ll5c5QcpZUpaK0qi-csyePse_RERTZZ-_aD7a2se5R2wU-duZGYB_-9_rabGUhkyIkIqPl5VWIHml3MwkdLNEwpNjYdb_0u35vmjuAl5B8VTxs434HRybItPuY2YuQGznb-7EmePDrUdeY1t310mp_XsuI6Hps0_s",
-    alt: "White marble nail art design",
+    src: "/images/gallery/portfolio-4.jpeg",
+    alt: "Blue crystal stiletto nails with 3D flower art",
     label: "",
     sub: "",
     className: "",
   },
   {
-    src: "https://lh3.googleusercontent.com/aida-public/AB6AXuA5xzMeNF_gp8T2QDDPQWtOtH0caLWxyBJ-tOR0Sqe1_3tpY4v0-QHt2_sMvB5vfg4Z_MxHkG_S4p4natsjWZBX69bX8cKOb6ubXyo1kLT2XyQF2AC53SlBMocQiVIAvtBquYYa3jv9P67BhPxTn23pioWZmguLQ5nfMBRCijOX7hcHiWimZquNiAbnjXQUCGcDR-C2fEM4SOVtFji3aZSAuFiYmT5YcsWC4nfaNCBCpEL74FF32n_OvURbV_5B5XCjuFesVuQbszw",
-    alt: "Seasonal holiday nail art design",
+    src: "/images/reviews/review-1.jpeg",
+    alt: "Glitter tip coffin nails with crystal accents",
     label: "",
     sub: "",
     className: "col-span-2 md:col-span-1",
@@ -86,10 +88,9 @@ const TESTIMONIALS = [
   {
     quote:
       "The absolute best! Having Katelyn come to my house while my baby naps is a game changer. My nails have never looked better!",
-    name: "Sarah Jenkins",
+    name: "Sarah J.",
     location: "Riverside, CA",
-    avatar:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuCR_PBlzqInZqFUtCEpSjtRlzXt1xyM5ubQtd4D-VcniMUQ4NqcSkW2KWdrU_0qdsuFsi9BmRHIdGjHAXC6nMnaiWpDwaNfxzUYvrRr58ciqCV5tTirSB8_MdZv2_EIAXX6RhOO1rrqypZOr3wFqKHb-EfGTkYjuafx4gxlSZU06GH_0Oek0gReG8B-pa0BuTiRPSgkBNEQrm5n2B0IAHqAXt680PMprVInGerod02EOo8JJzFT2pcuJawS_9Z2HkUe_k4WsgNiSgA",
+    initials: "SJ",
     elevated: false,
   },
   {
@@ -97,8 +98,7 @@ const TESTIMONIALS = [
       "I'm obsessed with my Gel-X set. She is so meticulous with the shaping and the art is exactly like the picture I showed her.",
     name: "Michelle T.",
     location: "Moreno Valley, CA",
-    avatar:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuCNfVyKqLeI88wG-UuYZ0zAvLyyHkVf3FPQ-OMUaicg61YNSf1fyPxwC1dn3WcPrpNr_3zj3qo4UxqRNQTY8RVnTFM4tV3mX06r0i8hJLhA2ZcMz34Lj6iXFaW_cpEqmdo_W9ZSta1wnhpuJdz852wonHI6DwafRj-mZXD9K1TLDeM8p30-dfUorBUlv9Ru7Uuomi0Ai5-R1yzrdW_cikgpn67GR4Ko5s-AIH74kUiqzzi_ywQ0hdkJJvO3BPgmxpVNXaJPjZs7yH8",
+    initials: "MT",
     elevated: true,
   },
   {
@@ -106,8 +106,7 @@ const TESTIMONIALS = [
       "Professional, clean, and so talented. I love that I don't have to drive anywhere. Highly recommend Kay's Nail Wagon!",
     name: "Jessica R.",
     location: "Corona, CA",
-    avatar:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuCpSWTkZvztV6n5VkVQba1ly1_nIvKj2GKQUNM8wTRoclau2_HtDZMYc_gHjg98FJuv_9kGBC9F6Rz9DxW63D951iTvoFL2ER2R7qRxf6ZPA6FmnWeLyI5-LWf_L1D2uijQNM483qDz7myhuMOc5LrYuHK85JWLsYIdxnfu9uqj_N6qcgVpw2s9jVeOCOeKviCXO-0wbe5Vn7oriN19Bq9N98db-hrrPfdAyo1PdXUcUYhN3zPi9WcPeBLtrNgT5432pxYEKqrmYVI",
+    initials: "JR",
     elevated: false,
   },
 ];
@@ -119,11 +118,12 @@ export default function Home() {
       <header className="sticky top-0 z-50 w-full bg-white/95 backdrop-blur-sm border-b border-[#f4f0f2] transition-all duration-300">
         <div className="max-w-[1280px] mx-auto px-4 sm:px-10 py-3 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="size-10 rounded-full bg-primary/20 flex items-center justify-center text-primary-dark">
-              <span className="material-symbols-outlined text-[24px]">
-                local_shipping
-              </span>
-            </div>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/images/logo.jpeg"
+              alt="Kay's Nail Wagon logo"
+              className="size-10 rounded-full object-cover"
+            />
             <h2 className="text-text-dark text-2xl font-script font-bold leading-tight tracking-wide">
               Kay&apos;s Nail Wagon
             </h2>
@@ -144,7 +144,9 @@ export default function Home() {
               )}
             </nav>
             <a
-              href="#"
+              href="https://kaysnailwagon.booksy.com"
+              target="_blank"
+              rel="noopener noreferrer"
               className="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-6 bg-primary hover:bg-primary-dark transition-colors text-text-dark text-sm font-bold shadow-sm"
             >
               Book Now
@@ -170,7 +172,7 @@ export default function Home() {
                       location_on
                     </span>
                     <span className="text-xs font-bold uppercase tracking-wider text-primary-dark">
-                      Riverside, CA &amp; Surrounding
+                      IE &bull; Riverside &amp; Surrounding
                     </span>
                   </div>
                 </HeroReveal>
@@ -194,7 +196,9 @@ export default function Home() {
                 <HeroReveal delay={0.3}>
                   <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start pt-4">
                     <a
-                      href="#"
+                      href="https://kaysnailwagon.booksy.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="flex items-center justify-center rounded-full h-12 px-8 bg-primary hover:bg-primary-dark text-text-dark text-base font-bold shadow-lg shadow-primary/30 transition-all transform hover:-translate-y-1"
                     >
                       Book Appointment
@@ -215,8 +219,8 @@ export default function Home() {
                 <div className="relative w-full max-w-[500px] aspect-[4/5] md:aspect-square rounded-[2rem] overflow-hidden shadow-2xl border-8 border-white rotate-2 hover:rotate-0 transition-transform duration-500">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
-                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuDgbxvXH5XS9j-c96Vx0-nLzYB9E_mGO6PlJt2LLTa4xLxyHItX6nf4-x45R37n2VDKARunQBi1JSg9YLpXoKaGw0n1NHDXKgVG7bKWFvGhclJumfB-onFurpl-EVjjFAgKAW7O0Q1mo-1fdRufgUlRvQVBrfK6krMaqfW0C0gYu6nzKWIAqCxyn2G_lOgsA4F0tRTjSO31RKXeOsCZm0phiNc9BfB2X5h85AABz3movIQSWbaEktSJ_I5QZN92gD3rG2zjDie0z2M"
-                    alt="Close up of elegant pink nail art with gold flakes"
+                    src="/images/reviews/review-2.jpeg"
+                    alt="Crystal encrusted nail art by Kay's Nail Wagon"
                     className="w-full h-full object-cover"
                   />
                 </div>
@@ -248,16 +252,17 @@ export default function Home() {
                     </h2>
                   </div>
                   <p className="text-text-dark/70 leading-relaxed">
-                    I am a licensed mobile nail technician dedicated to bringing
-                    you a hygienic, creative, and convenient salon experience. I
-                    started Kay&apos;s Nail Wagon to bridge the gap between
-                    luxury and accessibility. No more waiting in crowded
-                    salons&mdash;I bring the sparkle to you!
+                    Bringing your nail appointment to you! Our mobile nail
+                    business offers convenient, high-quality services for a
+                    pampering experience wherever you are. I started Kay&apos;s
+                    Nail Wagon to bridge the gap between luxury and
+                    accessibility. No more waiting in crowded salons&mdash;I
+                    bring the sparkle to you!
                   </p>
                   <p className="text-text-dark/70 leading-relaxed">
-                    Specializing in structured gel and intricate nail art, I use
-                    only premium products to ensure the health and longevity of
-                    your natural nails.
+                    Specializing in structured gel, intricate nail art, and
+                    custom designs, I use only premium products to ensure the
+                    health and longevity of your natural nails.
                   </p>
                   <div className="flex gap-6 justify-center md:justify-start pt-2">
                     {[
@@ -396,7 +401,9 @@ export default function Home() {
                 </div>
                 <a
                   className="text-sm font-bold underline decoration-primary decoration-2 underline-offset-4 hover:text-primary-dark transition-colors"
-                  href="#"
+                  href="https://www.instagram.com/kaysnailwagon/"
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
                   View Instagram
                 </a>
@@ -475,12 +482,9 @@ export default function Home() {
                       &ldquo;{t.quote}&rdquo;
                     </p>
                     <div className="mt-auto flex items-center gap-3">
-                      {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img
-                        src={t.avatar}
-                        alt={`${t.name} profile`}
-                        className="size-10 rounded-full object-cover bg-gray-200"
-                      />
+                      <div className="size-10 rounded-full bg-primary/20 flex items-center justify-center text-primary-dark text-sm font-bold">
+                        {t.initials}
+                      </div>
                       <div>
                         <p className="font-bold text-sm text-text-dark">
                           {t.name}
@@ -545,11 +549,12 @@ export default function Home() {
           <div className="flex flex-col md:flex-row justify-between items-center gap-8 text-center md:text-left">
             <div className="flex flex-col gap-2">
               <div className="flex items-center justify-center md:justify-start gap-2">
-                <div className="size-8 rounded-full bg-primary flex items-center justify-center text-bg-dark">
-                  <span className="material-symbols-outlined text-[18px]">
-                    local_shipping
-                  </span>
-                </div>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/images/logo.jpeg"
+                  alt="Kay's Nail Wagon logo"
+                  className="size-8 rounded-full object-cover"
+                />
                 <h2 className="text-2xl font-script font-bold">
                   Kay&apos;s Nail Wagon
                 </h2>
@@ -570,25 +575,32 @@ export default function Home() {
               ))}
             </div>
             <div className="flex gap-4">
-              {[
-                { label: "IG", icon: null },
-                { label: "FB", icon: null },
-                { label: null, icon: "mail" },
-              ].map((social, i) => (
-                <a
-                  key={i}
-                  className="size-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary hover:text-black transition-all"
-                  href="#"
-                >
-                  {social.icon ? (
-                    <span className="material-symbols-outlined text-[20px]">
-                      {social.icon}
-                    </span>
-                  ) : (
-                    <span className="text-sm font-bold">{social.label}</span>
-                  )}
-                </a>
-              ))}
+              <a
+                className="size-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary hover:text-black transition-all"
+                href="https://www.instagram.com/kaysnailwagon/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span className="text-sm font-bold">IG</span>
+              </a>
+              <a
+                className="size-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary hover:text-black transition-all"
+                href="https://kaysnailwagon.booksy.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span className="material-symbols-outlined text-[20px]">
+                  calendar_month
+                </span>
+              </a>
+              <a
+                className="size-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary hover:text-black transition-all"
+                href="mailto:nkatelyn337@icloud.com"
+              >
+                <span className="material-symbols-outlined text-[20px]">
+                  mail
+                </span>
+              </a>
             </div>
           </div>
           <div className="border-t border-white/10 mt-10 pt-6 flex flex-col md:flex-row justify-between items-center text-xs text-white/40 gap-4">
@@ -601,7 +613,9 @@ export default function Home() {
       {/* ─── FLOATING MOBILE CTA ─── */}
       <div className="fixed bottom-6 right-6 md:hidden z-40">
         <a
-          href="#"
+          href="https://kaysnailwagon.booksy.com"
+          target="_blank"
+          rel="noopener noreferrer"
           className="size-14 rounded-full bg-primary text-text-dark shadow-2xl flex items-center justify-center hover:bg-primary-dark transition-colors animate-bounce"
         >
           <span className="material-symbols-outlined">calendar_month</span>

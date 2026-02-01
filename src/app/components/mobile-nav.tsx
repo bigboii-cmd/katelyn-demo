@@ -65,7 +65,9 @@ export function MobileNav() {
             </a>
           ))}
           <a
-            href="#"
+            href="https://kaysnailwagon.booksy.com"
+            target="_blank"
+            rel="noopener noreferrer"
             onClick={() => setOpen(false)}
             className="mt-4 flex items-center justify-center rounded-full h-12 px-6 bg-primary hover:bg-primary-dark text-text-dark text-sm font-bold transition-colors"
           >
